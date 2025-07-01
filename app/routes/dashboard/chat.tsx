@@ -6,10 +6,9 @@ import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { cn } from "~/lib/utils";
 
-const CONVEX_SITE_URL = import.meta.env.VITE_CONVEX_URL!.replace(
-  /.cloud$/,
-  ".site"
-);
+// Construct the API URL with fallback
+const CONVEX_URL = import.meta.env.VITE_CONVEX_URL || "https://combative-seahorse-878.convex.cloud";
+const CONVEX_SITE_URL = CONVEX_URL.replace(/.cloud$/, ".site");
 
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit, isLoading } =
@@ -69,8 +68,8 @@ export default function Chat() {
             onChange={handleInputChange}
           />
           <div className="flex justify-end gap-3 items-center w-full">
-            <Button size="sm" className="text-xs">
-              Send
+            <Button size="sm" className="text-xs" disabled={isLoading}>
+              {isLoading ? "Sending..." : "Send"}
             </Button>
           </div>
         </div>

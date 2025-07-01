@@ -195,12 +195,15 @@ export const checkUserSubscriptionStatus = query({
       return { hasActiveSubscription: false };
     }
 
-    const subscription = await ctx.db
+    // Get ALL subscriptions for this user and check if ANY are active
+    const allUserSubscriptions = await ctx.db
       .query("subscriptions")
       .withIndex("userId", (q) => q.eq("userId", user.tokenIdentifier))
-      .first();
+      .collect();
 
-    const hasActiveSubscription = subscription?.status === "active";
+    // Check if ANY subscription is active
+    const hasActiveSubscription = allUserSubscriptions.some(sub => sub.status === "active");
+    
     return { hasActiveSubscription };
   },
 });
@@ -512,3 +515,7 @@ export const createCustomerPortalUrl = action({
     }
   },
 });
+
+
+
+

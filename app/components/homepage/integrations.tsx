@@ -68,34 +68,45 @@ export default function IntegrationsSection({
                 SAAS application quickly and efficiently.
               </p>
 
-              <div className="flex gap-3">
-                <Button size="sm" asChild>
-                  <Link
-                    to={
-                      loaderData?.isSignedIn
+              <div className="flex flex-col gap-3">
+                <div className="flex gap-3">
+                  <Button size="sm" asChild>
+                    <Link
+                      to={
+                        loaderData?.isSignedIn
+                          ? loaderData?.hasActiveSubscription
+                            ? "/dashboard"
+                            : "/pricing"
+                          : "/sign-up"
+                      }
+                      prefetch="viewport"
+                    >
+                      {loaderData?.isSignedIn
                         ? loaderData?.hasActiveSubscription
-                          ? "/dashboard"
-                          : "/pricing"
-                        : "/sign-up"
-                    }
-                    prefetch="viewport"
-                  >
-                    {loaderData?.isSignedIn
-                      ? loaderData?.hasActiveSubscription
-                        ? "Go to Dashboard (Demo)"
-                        : "Subscribe Now (Demo)"
-                      : "Get Started (Demo)"}
-                  </Link>
-                </Button>
-                <Button variant="outline" size="sm" asChild>
-                  <Link
-                    to="https://github.com/michaelshimeles/react-starter-kit"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    ⭐️ Start on GitHub
-                  </Link>
-                </Button>
+                          ? "Go to Dashboard (Demo)"
+                          : "Subscribe Now (Demo)"
+                        : "Get Started (Demo)"}
+                    </Link>
+                  </Button>
+                  <Button variant="outline" size="sm" asChild>
+                    <Link
+                      to="https://github.com/michaelshimeles/react-starter-kit"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      ⭐️ Start on GitHub
+                    </Link>
+                  </Button>
+                </div>
+                
+                {/* Premium App Button - Only for paid subscribers */}
+                {loaderData?.isSignedIn && loaderData?.hasActiveSubscription && (
+                  <Button size="sm" variant="secondary" asChild className="w-full">
+                    <Link to="/my-app" prefetch="viewport">
+                      🚀 Go to my APP
+                    </Link>
+                  </Button>
+                )}
               </div>
             </div>
           </div>

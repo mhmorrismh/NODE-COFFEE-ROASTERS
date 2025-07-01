@@ -13,11 +13,19 @@ A modern, production-ready SaaS starter template for building full-stack React a
 - 🔐 **Authentication with Clerk** - Complete user management
 - 💳 **Subscription management with Polar.sh** - Billing and payments
 - 🗄️ **Real-time database with Convex** - Serverless backend
-- 🤖 **AI Chat Integration** - OpenAI-powered chat functionality
+- 🤖 **AI Chat Integration** - Google Gemini 2.5 Flash-powered chat functionality
 - 📊 **Interactive Dashboard** - User management and analytics
 - 🎯 **Webhook handling** - Payment and subscription events
 - 📱 **Responsive Design** - Mobile-first approach
 - 🚢 **Vercel Deployment Ready** - One-click deployment
+- **Complete Authentication System** - Powered by Clerk with sign-in, sign-up, and user management
+- **Premium Subscription Management** - Integrated with Polar.sh for handling paid subscriptions  
+- **Modern UI Components** - Built with shadcn/ui and Tailwind CSS for a polished interface
+- **Real-time Backend** - Convex provides instant updates and seamless data synchronization
+- **AI-Powered Coffee Analysis** - OCR text extraction + visual roast level detection with Gemini AI
+- **Responsive Design** - Works seamlessly across desktop, tablet, and mobile devices
+- **Type Safety** - Full TypeScript implementation with proper type checking
+- **Production Ready** - Optimized build process and deployment configuration
 
 ## Tech Stack
 
@@ -33,7 +41,7 @@ A modern, production-ready SaaS starter template for building full-stack React a
 - **Convex** - Real-time database and serverless functions
 - **Clerk** - Authentication and user management
 - **Polar.sh** - Subscription billing and payments
-- **OpenAI** - AI chat capabilities
+- **Google Gemini 2.5 Flash** - AI chat capabilities
 
 ### Development & Deployment
 - **Vite** - Fast build tool
@@ -48,7 +56,7 @@ A modern, production-ready SaaS starter template for building full-stack React a
 - Clerk account for authentication
 - Convex account for database
 - Polar.sh account for subscriptions
-- OpenAI API key (for AI chat features)
+- Google AI Studio API key (for AI chat features)
 
 ### Installation
 
@@ -80,8 +88,8 @@ POLAR_ACCESS_TOKEN=your_polar_access_token_here
 POLAR_ORGANIZATION_ID=your_polar_organization_id_here
 POLAR_WEBHOOK_SECRET=your_polar_webhook_secret_here
 
-# OpenAI Configuration (for AI chat)
-OPENAI_API_KEY=your_openai_api_key_here
+# Google AI Studio Configuration (for AI chat)
+GOOGLE_GENERATIVE_AI_API_KEY=your_google_ai_api_key_here
 
 # Frontend URL for redirects
 FRONTEND_URL=http://localhost:5173
@@ -194,7 +202,7 @@ Make sure to deploy the output of `npm run build`
 - Subscription status display
 
 #### AI Chat Integration
-- OpenAI-powered conversations
+- Google Gemini 2.5 Flash-powered conversations
 - Real-time message streaming
 - Chat history persistence
 - Responsive chat interface
@@ -210,7 +218,7 @@ Make sure to deploy the output of `npm run build`
 - `POLAR_ACCESS_TOKEN` - Polar.sh API access token
 - `POLAR_ORGANIZATION_ID` - Your Polar.sh organization ID
 - `POLAR_WEBHOOK_SECRET` - Polar.sh webhook secret
-- `OPENAI_API_KEY` - OpenAI API key for chat features
+- `GOOGLE_GENERATIVE_AI_API_KEY` - Google AI Studio API key for chat features
 - `FRONTEND_URL` - Your production frontend URL
 
 ## Project Structure
@@ -235,7 +243,7 @@ Make sure to deploy the output of `npm run build`
 - `@clerk/react-router` - Authentication
 - `convex` - Real-time database
 - `@polar-sh/sdk` - Subscription management
-- `@ai-sdk/openai` & `ai` - AI chat capabilities
+- `@ai-sdk/google` & `ai` - AI chat capabilities
 - `@vercel/react-router` - Vercel deployment
 - `tailwindcss` v4 - Styling
 - `@radix-ui/*` - UI primitives
@@ -263,4 +271,4 @@ This project is licensed under the MIT License.
 
 **Stop rebuilding the same foundation over and over.** RSK eliminates months of integration work by providing a complete, production-ready SaaS template with authentication, payments, AI chat, and real-time data working seamlessly out of the box.
 
-Built with ❤️ using React Router v7, Convex, Clerk, Polar.sh, and OpenAI.
+Built with ❤️ using React Router v7, Convex, Clerk, Polar.sh, and Google Gemini 2.5 Flash.
